@@ -1,0 +1,210 @@
+<html>
+<style>
+
+.topnav {
+ 
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+   background-color: white;
+  color: blue;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+#g-search-button {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  left: -22px;
+  top: 3px;
+
+  background-color: black;  /* Replace with your own image */
+}
+
+
+h1 {
+margin-left: 70px;
+}
+
+
+p {
+margin-left: 70px;
+font-weight: bold;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 3px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
+
+table,th,td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+</style>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>JavaScript Form Validation using a sample registration form</title>
+<meta name="keywords" content="example, JavaScript Form Validation, Sample registration form" />
+<meta name="description" content="This document is an example of JavaScript Form Validation using a sample registration form. " />
+<link rel='stylesheet' href='js-form-validation.css' type='text/css' />
+<head>
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+</head>
+<body onload="document.registration.userid.focus();">
+<h1>Care Advocate</h1><br><br><br>
+Search Members & view Member's Detailed Profile<br><br><br>
+<form name='registration' onSubmit="return formValidation(); >
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">Members</a>
+  <a href="#contact">Eligibility</a>
+  <a href="#about">Claims</a>
+  <a href="#about">Providers</a>
+   <a href="#about">Communication</a>
+  <a href="#about">Logout</a>
+</div><br><br><br>
+<label>Search By:</label>
+
+<input type="text" name="q" id="site-search-input" autocomplete="off" value="Member ID" class="gray" />
+<span id="g-search-button"></span>
+<input type="text" name="q" id="site-search-input" autocomplete="off" value="Subscriber ID" class="gray" />
+<span id="g-search-button"></span>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="First name" title="Type in a name">
+<span id="g-search-button"></span>
+<input type="text" name="q" id="site-search-input" autocomplete="off" value="Last name" class="gray" />
+<span id="g-search-button"></span>
+ <input type="button" value="Search"/>
+<ul id="myUL">
+  <li><a href="#">Adele</a></li>
+  <li><a href="#">Agnes</a></li>
+
+  <li><a href="#">Billy</a></li>
+  <li><a href="#">Bob</a></li>
+
+  <li><a href="#">Calvin</a></li>
+  <li><a href="#">Christina</a></li>
+  <li><a href="#">Cindy</a></li>
+</ul>
+
+</form><br><br>
+
+<form> 
+<table style="width:70%">
+    <thead>
+    <tr>
+	<th>Member ID</th>
+	<th>Subscriber ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>DOB</th>
+	 <th>Gender</th>
+        <th>Relationship</th>
+        <th>Contact</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>4683749</td>
+        <td>HY59506J</td>
+        <td>Greeme</td>
+	<td>Smith</td>
+	<td>07/04/1961</td>
+	<td>Male</td>
+	<td>Member</td>
+	<td>(503)-345-4568</td>
+    </tr>    
+	<tr>
+        <td>4859602</td>
+        <td>GUI13759J</td>
+        <td>Lisa</td>
+	<td>Gamer</td>
+        <td>16/06/1983</td>
+	<td>Female</td>
+	<td>Subscriber dependent</td>
+	<td>(403)-845-8989</td>
+    </tr>
+<tr>
+        <td>8604734</td>
+        <td>MK46587J</td>
+        <td>David</td>
+	<td>Hutton</td>
+	<td>24/08/1972</td>
+	<td>Male</td>
+        <td>Member</td>
+	<td>(478)-648-4785</td>
+    </tr>
+<tr>
+        <td>3894684</td>
+        <td>NH64890J</td>
+        <td>Barbara</td>
+	<td>Scott</td>
+	<td>05/12/1986</td>
+	<td>Female</td>
+        <td>Member</td>
+	<td>(647)-384-2937</td>
+    </tr>
+    </tbody>
+</table>
+
+</form>
+
+
+</body>
+</html>
+
