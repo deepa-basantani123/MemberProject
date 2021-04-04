@@ -1,4 +1,5 @@
 <html>
+
 <style>
 
 .topnav {
@@ -74,6 +75,37 @@ table,th,td {
 }
 
 </style>
+<script>
+const create_member="http://localhost:8080/members"
+
+const api_addNewMember = (jsonData) =>{
+	return fetch(create_member,{
+		method:'POST',
+		body:JSON.stringfy(jsonData)
+	})
+	
+}
+const onFormSubmitted=(event)=>{
+	event.PreventDefault();
+	const memberid=event.target[0].value;
+	const subcriptionid=event.target[1].value;
+	const firstname=event.target[2].value;
+	const lastname=event.target[3].value;
+	const dob=event.target[4].value;
+	const gender=event.target[5].value;
+	const relationship=event.target[6].value;
+	const contact=event.target[7].value;
+	const addres=event.target[8].value;
+	const email=event.target[9].value;
+	const preferredmodeofcommunication=event.target[10].value;
+	api_addNewMember({memberid,subscriptioid,firstname,lastname,dob,gender,relationship,contact,address,email,preferredmodeofcommunication}).then(res=>res.json()).then(json=>{
+		document.write("Done");
+
+	})
+	
+	form.addEventListener('submit',onFormSubmitted);
+}
+</script>
 </html>
 
 
@@ -99,9 +131,9 @@ table,th,td {
 </div>
 <ul>
 <li><label for="member ID">Member ID:</label></li>
-<li><input type="text" name="Member ID" size="25" /></li>
+<li><input type="number" name="Member ID" size="25" /></li>
 <li><label for="Subscription ID">Subscription ID:</label></li>
-<li><input type="text" name="Subscription ID" size="25" /></li>
+<li><input type="number" name="Subscription ID" size="25" /></li><br>
 <li><label for="firstname">First Name:</label></li>
 <li><input type="text" name="First Name" size="25" /></li>
 <li><label for="lastname">Last Name:</label></li>
@@ -118,12 +150,16 @@ table,th,td {
 <li><label for="Address">Address:</label></li>
 <li><textarea name="Address" id="Adress"></textarea></li>
 <li><label for="email">Email:</label></li>
-<li><input type="text" name="email" size="25" /></li><br>
+<li><input type="email" name="email" size="25" /></li><br>
 <li><label>Preferred Mode Of Communication:</label></li>
 <li><input type="checkbox" name="en" value="en" checked /><span>Mobile</span></li>
 <li><input type="checkbox" name="nonen" value="noen" /><span> Email</span></li><br>
 </ul>
-
+</form>
+<form >
+    <input type="submit" value="Add Member" />
+</form>
+<form>
 <table style="width:70%">
     <thead>
     <tr>

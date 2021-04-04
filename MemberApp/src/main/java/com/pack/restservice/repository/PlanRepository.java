@@ -8,7 +8,7 @@ import com.pack.restservice.entity.Plan;
 
 
 @RepositoryRestResource(path = "/plans")
-public interface PlanRepository extends JpaRepository<Plan, String> {
+public interface PlanRepository extends JpaRepository<Plan, Integer> {
 
 }
 

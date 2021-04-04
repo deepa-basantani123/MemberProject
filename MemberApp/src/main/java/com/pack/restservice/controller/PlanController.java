@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pack.restservice.entity.Member1;
 import com.pack.restservice.entity.Plan;
 import com.pack.restservice.repository.PlanRepository;
 
@@ -28,14 +29,20 @@ private final PlanRepository repository;
 PlanController(PlanRepository repository){
 	this.repository=repository;
 }
+@PostMapping(consumes = "application/json")
+public Plan create(@RequestBody Plan plan) {
+	return repository.save(plan);
+}
 
 @GetMapping("")
 List <Plan> all() {
 return repository.findAll();
 }
 
-@GetMapping(path = "/{firstName}")
-public Plan find(@PathVariable("firstName") String firstName) {
-return repository.findOne(firstName);
+@GetMapping(path = "/{subscriptionID}")
+public Plan find(@PathVariable("subscriptionID") Integer subscriptionID) {
+return repository.findOne(subscriptionID);
+
+
 }
 }

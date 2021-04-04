@@ -1,23 +1,74 @@
 package com.pack.restservice.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
+//@Table(name="Member1")
 public class Member1{
+	
+
 	@Id
-	private int MemberID;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//pi631`1 @NotNull(message="MemberID cannot be null")
+	//@OneToMany(cascade=CascadeType.ALL, mappedBy="Member1")
+	//private List<Plan>plans;
+	private Integer MemberID;
+	private Integer SubscriptionID;
 	private String FirstName;
 	private String LastName;
 	private String Gender;
-	private long Contact;
 	private String Date;
+	private String RelationShip;
+	private String PreferredModeOfCommunication;
+	public String getPreferredModeOfCommunication() {
+		return PreferredModeOfCommunication;
+	}
+
+	public void setPreferredModeOfCommunication(String preferredModeOfCommunication) {
+		PreferredModeOfCommunication = preferredModeOfCommunication;
+	}
+
+	public String getRelationShip() {
+		return RelationShip;
+	}
+
+	public void setRelationShip(String relationShip) {
+		RelationShip = relationShip;
+	}
+	private long Contact;
+	
 	private String Address;
-    public int getMemberID() {
+	private String Email;
+   public Integer getSubscriptionID() {
+		return SubscriptionID;
+	}
+
+	public void setSubscriptionID(Integer subscriptionID) {
+		SubscriptionID = subscriptionID;
+	}
+
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+	public Integer getMemberID() {
 		return MemberID;
 	}
 
-	public void setMemberID(int memberID) {
+	public void setMemberID(Integer memberID) {
 		MemberID = memberID;
 	}
 
@@ -71,7 +122,7 @@ public class Member1{
                }
     @Override
     public String toString() {
-        return "User{" + "MemberID='" + MemberID + '\'' + ", FirstName='" + FirstName+ '\'' + ", Lastname='" + LastName + '\''
-                + ", Gender='" + Gender + '\'' + ", Contact='" + Contact + ", Date='" + Date+ ", Address='" + Address+'}';
+        return "User{" + "MemberID='" + MemberID +"SubscriptionID='"+SubscriptionID+ '\'' +'\''+ "FirstName='" + FirstName+ '\'' + " Lastname='" + LastName + '\''
+                +  "Gender='" + Gender +'\''+ "Date='" + Date +  '\''+ "PreferredModeOfCommunication= '"+ PreferredModeOfCommunication +'\'' + "Contact='" + Contact + ", Date='" + Date+ ",RelationShip='"+RelationShip+" Address='" + Address+ "Email='"+Email+'}';
         }
     }

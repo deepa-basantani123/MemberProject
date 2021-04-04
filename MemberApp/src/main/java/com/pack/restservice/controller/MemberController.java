@@ -33,9 +33,9 @@ return repository.findAll();
 
 }
 
-@GetMapping(path = "/{firstName}")
-public Member1 find(@PathVariable("firstName") String firstName) {
-return repository.findOne(firstName);
+@GetMapping(path = "/{memberID}")
+public Member1 find(@PathVariable("memberID") Integer memberID) {
+return repository.findOne(memberID);
 }
 
 @PostMapping(consumes = "application/json")
@@ -44,14 +44,14 @@ public Member1 create(@RequestBody Member1 member) {
 }
 
 @DeleteMapping(path = "/{memberID}")
-public void delete(@PathVariable("memberID") String firstName) {
-repository.delete(firstName);
+public void delete(@PathVariable("memberID") Integer memberID) {
+repository.delete(memberID);
 }
 
 @PutMapping(path = "/{memberID}")
-public Member1 update(@PathVariable("memberID") String firstName, @RequestBody Member1 member) throws BadHttpRequest {
-if (repository.exists(firstName)) {
-member.setFirstName(firstName);
+public Member1 update(@PathVariable("memberID") Integer memberID, @RequestBody Member1 member) throws BadHttpRequest {
+if (repository.exists(memberID)) {
+member.setMemberID(memberID);
 return repository.save(member);
 } else
 {
